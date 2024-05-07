@@ -3,7 +3,7 @@ from sources.coinbase_api import get_candle_period
 
 if __name__ == "__main__":
 
-    data = get_candle_period(15)
+    data = get_candle_period(25)
 
     try:
         data.write_parquet("data\\candle_data.parquet") 
