@@ -1,9 +1,17 @@
 import duckdb
+import asyncio
 from sources.coinbase_api import get_candle_period
+
+async def get_data(n:int):
+    data = await get_candle_period(n)
+    return data
+
 
 if __name__ == "__main__":
 
-    data = get_candle_period(25)
+    #seems to be an issue trying to execute more than 16 at once
+    data = asyncio.run(get_data(n=16))
+    print(data.shape)
 
     try:
         data.write_parquet("data\\candle_data.parquet") 
