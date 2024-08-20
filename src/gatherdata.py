@@ -28,7 +28,6 @@ if __name__ == "__main__":
                                 SELECT 
                                 * FROM parquet_scan('data\\candle_data.parquet')
                     """
-
             else:
                 query = """CREATE TABLE IF NOT EXISTS CANDLES AS 
                                 SELECT
